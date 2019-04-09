@@ -34,10 +34,4 @@ describe("InputArea", () => {
     expect(addItemSpy).toBeCalled();
     expect(addItemSpy).toBeCalledWith("Octoberfest");
   });
-
-  it("should allow missing onSubmit when Add is clicked", () => {
-    const wrapper = shallow(<InputArea />);
-    const addButton = wrapper.find("button");
-    addButton.simulate("click");
-  });
 });

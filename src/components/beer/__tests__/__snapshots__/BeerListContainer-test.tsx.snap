@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerListContainer should render InputArea and BeerList 1`] = `
+<Fragment>
+  <InputArea
+    onSubmit={[Function]}
+  />
+  <BeerList
+    items={Array []}
+  />
+</Fragment>
+`;

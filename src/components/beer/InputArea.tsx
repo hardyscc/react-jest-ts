@@ -1,7 +1,7 @@
 import React from "react";
 
 interface IProps {
-  onSubmit?: (name: string) => void;
+  onSubmit: (name: string) => void;
 }
 
 interface IState {
@@ -27,11 +27,9 @@ class InputArea extends React.Component<IProps, IState> {
   };
 
   handleClick = () => {
-    if (this.props.onSubmit) {
-      if (this.state.text) {
-        this.props.onSubmit(this.state.text);
-        this.setState({ text: "" });
-      }
+    if (this.state.text) {
+      this.props.onSubmit(this.state.text);
+      this.setState({ text: "" });
     }
   };
 }

@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "24.0.11",
     "@types/node": "11.13.0",
     "@types/react": "16.8.13",
     "@types/react-dom": "16.8.3",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "jest-enzyme": "^7.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
@@ -15,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -27,12 +32,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "@types/enzyme": "^3.9.1",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1"
-  },
+  "devDependencies": {},
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
