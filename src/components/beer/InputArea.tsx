@@ -1,38 +1,41 @@
+import { Form, Formik } from "formik";
 import React from "react";
 
 interface IProps {
   onSubmit: (name: string) => void;
 }
 
-interface IState {
+interface FormValues {
   text: string;
 }
 
-class InputArea extends React.Component<IProps, IState> {
-  state: IState = {
-    text: ""
-  };
-
+class InputArea extends React.Component<IProps> {
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input value={this.state.text} onChange={this.setText} />
-          <button type="submit">Add</button>
-        </form>
-      </div>
+      <Formik<FormValues>
+        initialValues={{ text: "" }}
+        onSubmit={this.handleSubmit}
+      >
+        {({ values, handleChange, handleBlur, isSubmitting }) => (
+          <Form>
+            <input
+              name="text"
+              value={values.text}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            <button type="submit" disabled={isSubmitting}>
+              Add
+            </button>
+            {isSubmitting && <div id="submitting">Submitting</div>}
+          </Form>
+        )}
+      </Formik>
     );
   }
 
-  setText = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ text: event.target.value });
-  };
-
-  handleSubmit = () => {
-    if (this.state.text) {
-      this.props.onSubmit(this.state.text);
-      this.setState({ text: "" });
-    }
+  handleSubmit = (values: FormValues) => {
+    this.props.onSubmit(values.text);
   };
 }
 
