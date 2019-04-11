@@ -16,8 +16,10 @@ class InputArea extends React.Component<IProps, IState> {
   render() {
     return (
       <div>
-        <input value={this.state.text} onChange={this.setText} />
-        <button onClick={this.handleClick}>Add</button>
+        <form onSubmit={this.handleSubmit}>
+          <input value={this.state.text} onChange={this.setText} />
+          <button type="submit">Add</button>
+        </form>
       </div>
     );
   }
@@ -26,7 +28,7 @@ class InputArea extends React.Component<IProps, IState> {
     this.setState({ text: event.target.value });
   };
 
-  handleClick = () => {
+  handleSubmit = () => {
     if (this.state.text) {
       this.props.onSubmit(this.state.text);
       this.setState({ text: "" });

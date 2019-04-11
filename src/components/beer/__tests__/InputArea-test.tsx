@@ -23,14 +23,14 @@ describe("InputArea", () => {
   it("should call onSubmit when Add is clicked", () => {
     const addItemSpy = jest.fn();
     const wrapper = shallow(<InputArea onSubmit={addItemSpy} />);
-    const addButton = wrapper.find("button");
+    const addButton = wrapper.find("form");
 
     wrapper.setState({ text: "" });
-    addButton.simulate("click");
+    addButton.simulate("submit");
     expect(addItemSpy).toHaveBeenCalledTimes(0);
 
     wrapper.setState({ text: "Octoberfest" });
-    addButton.simulate("click");
+    addButton.simulate("submit");
     expect(addItemSpy).toBeCalled();
     expect(addItemSpy).toBeCalledWith("Octoberfest");
   });
