@@ -1,4 +1,4 @@
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikActions } from "formik";
 import React from "react";
 
 interface IProps {
@@ -27,15 +27,20 @@ class InputArea extends React.Component<IProps> {
             <button type="submit" disabled={isSubmitting}>
               Add
             </button>
-            {isSubmitting && <div id="submitting">Submitting</div>}
           </Form>
         )}
       </Formik>
     );
   }
 
-  handleSubmit = (values: FormValues) => {
-    this.props.onSubmit(values.text);
+  handleSubmit = (
+    values: FormValues,
+    { setSubmitting }: FormikActions<FormValues>
+  ) => {
+    if (values.text) {
+      this.props.onSubmit(values.text);
+    }
+    setSubmitting(false);
   };
 }
 

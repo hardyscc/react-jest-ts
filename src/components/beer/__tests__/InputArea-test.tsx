@@ -2,6 +2,8 @@ import { mount } from "enzyme";
 import React from "react";
 import InputArea from "../InputArea";
 
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+
 describe("InputArea", () => {
   it("should contain an input and a button", () => {
     const addItemSpy = jest.fn();
@@ -19,30 +21,29 @@ describe("InputArea", () => {
     expect(wrapper.find("input").props().value).toEqual("Resin");
   });
 
-  it("should call onSubmit", () => {
-    const addItemSpy = jest.fn();
-    const wrapper = mount(<InputArea onSubmit={addItemSpy} />);
+  it("should call onSubmit", async () => {
+    const onSubmitSpy = jest.fn();
+    const wrapper = mount(<InputArea onSubmit={onSubmitSpy} />);
 
-    expect(wrapper.find("#submitting")).toHaveLength(0);
     wrapper.find("input").simulate("change", {
       target: { name: "text", value: "Octoberfest" }
     });
 
     wrapper.find("form").simulate("submit");
-    expect(wrapper.find("#submitting")).toHaveLength(1);
-    expect(wrapper.find('button[type="submit"]').props().disabled).toBe(true);
+    expect(wrapper.find('button[type="submit"]').props().disabled).toBeTruthy();
 
-    //expect(addItemSpy).toHaveBeenCalled();
-    //expect(addItemSpy).toBeCalledWith("Octoberfest");
+    await sleep(10);
+    expect(onSubmitSpy).toBeCalled();
+    expect(onSubmitSpy).toBeCalledWith("Octoberfest");
   });
 
-  // it("should not call onSubmit if text is empty", () => {
-  //   const addItemSpy = jest.fn();
-  //   const wrapper = mount(<InputArea onSubmit={addItemSpy} />);
-  //   const form = wrapper.find("form");
+  it("should not call onSubmit if text is empty", async () => {
+    const onSubmitSpy = jest.fn();
+    const wrapper = mount(<InputArea onSubmit={onSubmitSpy} />);
 
-  //   wrapper.setState({ text: "" });
-  //   form.simulate("submit");
-  //   expect(addItemSpy).toBeCalledTimes(0);
-  // });
+    wrapper.find("form").simulate("submit");
+
+    await sleep(10);
+    expect(onSubmitSpy).not.toBeCalled();
+  });
 });
