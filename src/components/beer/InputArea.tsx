@@ -6,23 +6,23 @@ interface IProps {
 }
 
 interface FormValues {
-  text: string;
+  name: string;
 }
 
 class InputArea extends React.Component<IProps> {
   render() {
     return (
       <Formik<FormValues>
-        initialValues={{ text: "" }}
+        initialValues={{ name: "" }}
         onSubmit={this.handleSubmit}
       >
         {({ values, handleChange, handleBlur, isSubmitting }) => (
           <Form>
-            <label htmlFor="text">Beer</label>
+            <label htmlFor="name">name</label>
             <input
-              id="text"
-              name="text"
-              value={values.text}
+              id="name"
+              name="name"
+              value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -37,10 +37,11 @@ class InputArea extends React.Component<IProps> {
 
   handleSubmit = (
     values: FormValues,
-    { setSubmitting }: FormikActions<FormValues>
+    { setSubmitting, resetForm }: FormikActions<FormValues>
   ) => {
-    if (values.text) {
-      this.props.onSubmit(values.text);
+    if (values.name) {
+      this.props.onSubmit(values.name);
+      resetForm();
     }
     setSubmitting(false);
   };

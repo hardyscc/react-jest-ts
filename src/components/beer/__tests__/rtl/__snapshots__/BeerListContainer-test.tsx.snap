@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RTL : BeerListContainer add beer 1`] = `
+exports[`react-testing-library - BeerListContainer add beer 1`] = `
 <div>
   <form>
     <label
-      for="text"
+      for="name"
     >
-      Beer
+      name
     </label>
     <input
-      id="text"
-      name="text"
-      value="Octoberfest"
+      id="name"
+      name="name"
+      value=""
     />
     <button
       type="submit"
@@ -27,18 +27,18 @@ exports[`RTL : BeerListContainer add beer 1`] = `
 </div>
 `;
 
-exports[`RTL : BeerListContainer add beer 2`] = `
+exports[`react-testing-library - BeerListContainer add beer 2`] = `
 <div>
   <form>
     <label
-      for="text"
+      for="name"
     >
-      Beer
+      name
     </label>
     <input
-      id="text"
-      name="text"
-      value="Killingbear"
+      id="name"
+      name="name"
+      value=""
     />
     <button
       type="submit"

@@ -2,17 +2,17 @@ import React from "react";
 import { fireEvent, render, wait } from "react-testing-library";
 import BeerListContainer from "../../BeerListContainer";
 
-describe("RTL : BeerListContainer", () => {
+describe("react-testing-library - BeerListContainer", () => {
   it("add beer", async () => {
     const { getByText, getByLabelText, queryByText, container } = render(
       <BeerListContainer />
     );
 
-    const inputText = getByLabelText(/beer/i);
+    const inputText = getByLabelText(/name/i);
     const addButton = getByText(/add/i);
 
     fireEvent.change(inputText, {
-      target: { name: "text", value: "Octoberfest" }
+      target: { name: "name", value: "Octoberfest" }
     });
     fireEvent.click(addButton);
 
@@ -20,7 +20,7 @@ describe("RTL : BeerListContainer", () => {
     expect(container).toMatchSnapshot();
 
     fireEvent.change(inputText, {
-      target: { name: "text", value: "Killingbear" }
+      target: { name: "name", value: "Killingbear" }
     });
     fireEvent.click(addButton);
 

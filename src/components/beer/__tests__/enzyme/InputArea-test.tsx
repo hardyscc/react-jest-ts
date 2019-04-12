@@ -16,7 +16,7 @@ describe("InputArea", () => {
     const wrapper = mount(<InputArea onSubmit={onSubmitSpy} />);
     wrapper
       .find("input")
-      .simulate("change", { target: { name: "text", value: "Resin" } });
+      .simulate("change", { target: { name: "name", value: "Resin" } });
     expect(wrapper.find("input").props().value).toEqual("Resin");
   });
 
@@ -24,7 +24,7 @@ describe("InputArea", () => {
     const onSubmitSpy = jest.fn();
     const wrapper = mount(<InputArea onSubmit={onSubmitSpy} />);
     wrapper.find("input").simulate("change", {
-      target: { name: "text", value: "Octoberfest" }
+      target: { name: "name", value: "Octoberfest" }
     });
     wrapper.find("form").simulate("submit");
     expect(wrapper.find('button[type="submit"]').props().disabled).toBeTruthy();
