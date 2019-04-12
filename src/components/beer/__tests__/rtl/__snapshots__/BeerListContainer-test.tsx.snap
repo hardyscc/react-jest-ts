@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RTL : BeerListContainer add beer 1`] = `
+<div>
+  <form>
+    <label
+      for="text"
+    >
+      Beer
+    </label>
+    <input
+      id="text"
+      name="text"
+      value="Octoberfest"
+    />
+    <button
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+  <ul>
+    <li>
+      Octoberfest
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`RTL : BeerListContainer add beer 2`] = `
+<div>
+  <form>
+    <label
+      for="text"
+    >
+      Beer
+    </label>
+    <input
+      id="text"
+      name="text"
+      value="Killingbear"
+    />
+    <button
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+  <ul>
+    <li>
+      Octoberfest
+    </li>
+    <li>
+      Killingbear
+    </li>
+  </ul>
+</div>
+`;

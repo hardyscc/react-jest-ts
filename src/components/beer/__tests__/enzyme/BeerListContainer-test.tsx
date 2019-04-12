@@ -1,7 +1,7 @@
 import { mount, shallow } from "enzyme";
 import React from "react";
-import BeerListContainer from "../BeerListContainer";
-import InputArea from "../InputArea";
+import BeerListContainer from "../../BeerListContainer";
+import InputArea from "../../InputArea";
 
 describe("BeerListContainer", () => {
   it("should render InputArea and BeerList", () => {

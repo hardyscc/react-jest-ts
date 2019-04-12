@@ -18,7 +18,9 @@ class InputArea extends React.Component<IProps> {
       >
         {({ values, handleChange, handleBlur, isSubmitting }) => (
           <Form>
+            <label htmlFor="text">Beer</label>
             <input
+              id="text"
               name="text"
               value={values.text}
               onChange={handleChange}

@@ -1,6 +1,6 @@
 import { mount } from "enzyme";
 import React from "react";
-import InputArea from "../InputArea";
+import InputArea from "../../InputArea";
 
 describe("InputArea", () => {
   it("should contain an input and a button", () => {
