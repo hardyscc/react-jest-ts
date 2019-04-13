@@ -10,6 +10,7 @@ describe("react-testing-library - BeerListContainer", () => {
 
     const inputText = getByLabelText(/name/i);
     const addButton = getByText(/add/i);
+    const beerlist = container.querySelector("ul");
 
     fireEvent.change(inputText, {
       target: { name: "name", value: "Octoberfest" }
@@ -17,7 +18,7 @@ describe("react-testing-library - BeerListContainer", () => {
     fireEvent.click(addButton);
 
     await wait(() => expect(queryByText("Octoberfest")).not.toBeNull());
-    expect(container).toMatchSnapshot();
+    expect(beerlist).toMatchSnapshot();
 
     fireEvent.change(inputText, {
       target: { name: "name", value: "Killingbear" }
@@ -25,6 +26,6 @@ describe("react-testing-library - BeerListContainer", () => {
     fireEvent.click(addButton);
 
     await wait(() => expect(queryByText("Killingbear")).not.toBeNull());
-    expect(container).toMatchSnapshot();
+    expect(beerlist).toMatchSnapshot();
   });
 });

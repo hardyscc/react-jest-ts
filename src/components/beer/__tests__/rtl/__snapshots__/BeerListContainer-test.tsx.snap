@@ -1,58 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`react-testing-library - BeerListContainer add beer 1`] = `
-<div>
-  <form>
-    <label
-      for="name"
-    >
-      name
-    </label>
-    <input
-      id="name"
-      name="name"
-      value=""
-    />
-    <button
-      type="submit"
-    >
-      Add
-    </button>
-  </form>
-  <ul>
-    <li>
-      Octoberfest
-    </li>
-  </ul>
-</div>
+<ul>
+  <li>
+    Octoberfest
+  </li>
+</ul>
 `;
 
 exports[`react-testing-library - BeerListContainer add beer 2`] = `
-<div>
-  <form>
-    <label
-      for="name"
-    >
-      name
-    </label>
-    <input
-      id="name"
-      name="name"
-      value=""
-    />
-    <button
-      type="submit"
-    >
-      Add
-    </button>
-  </form>
-  <ul>
-    <li>
-      Octoberfest
-    </li>
-    <li>
-      Killingbear
-    </li>
-  </ul>
-</div>
+<ul>
+  <li>
+    Octoberfest
+  </li>
+  <li>
+    Killingbear
+  </li>
+</ul>
 `;
